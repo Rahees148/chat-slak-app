@@ -13,13 +13,13 @@ describe('CapsuleApp unit testing', function() {
 
     const action = {
       type: 'GET_USERNAME',
-      username : 'Naincy'
+      username : 'Rayees'
     };
 
     store.dispatch(action);
 
     store.getState().should.have.property('username');
-    store.getState().should.have.property('username').and.equal('Naincy');
+    store.getState().should.have.property('username').and.equal('Rayees');
     store.getState().should.have.property('screen');
     store.getState().should.have.property('screen').and.equal('WhatIsYourUsernameScreen');
   });
@@ -34,14 +34,14 @@ describe('CapsuleApp unit testing', function() {
 
     const action = {
       type: 'SET_USERNAME',
-      username : 'Naincy'
+      username : 'Rayees'
     };
 
     store.dispatch(action);
 
     store.getState().should.have.property('username');
     store.getState().should.have.property('screen');
-    store.getState().should.have.property('username').and.equal('Naincy');
+    store.getState().should.have.property('username').and.equal('Rayees');
     store.getState().should.have.property('screen').and.equal('ChatScreen');
   });
 
