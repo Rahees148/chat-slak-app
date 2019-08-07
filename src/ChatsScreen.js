@@ -116,7 +116,7 @@ class ChatScreen extends Component {
 
     chatMangerInit() {
         this.chatManager = new Chatkit.ChatManager({
-            instanceLocator: 'v1:us1:58197bf3-cd05-4562-ab6d-371e117fa29b',
+            instanceLocator: 'v1:us1:fcd7894c-a727-4d63-94c2-df6d38f01a04',
             userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
                 url: '/authenticate',
