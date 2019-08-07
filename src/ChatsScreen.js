@@ -115,12 +115,22 @@ class ChatScreen extends Component {
     }
 
     chatMangerInit() {
+        console.log(this.props.currentUsername);
+       // let currentUser = this.props.currentUsername;
+       
         this.chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:fcd7894c-a727-4d63-94c2-df6d38f01a04',
             userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
                 url: '/authenticate',
             }),
+        });
+        this.chatManager.connect()
+        .then(currentUser => {
+          console.log('Successful connection', currentUser)
+        })
+        .catch(err => {
+          console.log('Error on connection', err)
         })
     }
 

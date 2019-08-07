@@ -13,8 +13,8 @@ const chatkit = new Chatkit.default({
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
-app.use(express.static(__dirname + '/build'))
-
+// make express look in the public directory for assets (css/js/img)
+app.use(express.static(__dirname + '/build'));
 //create new user
 app.post('/users', (req, res) => {
   const { username } = req.body
@@ -23,14 +23,11 @@ app.post('/users', (req, res) => {
       id: username,
       name: username
     })
-    .then(() => res.sendStatus(201))
-    .catch(error => {
-      if (error.error_type === 'services/chatkit/user_already_exists') {
-        res.sendStatus(200)
-      } else {
-        res.status(error.status).json(error)
-      }
-    })
+    .then(() => {
+      console.log('User created successfully');
+    }).catch((err) => {
+      console.log(err);
+    });
 })
 //create new Room
 app.post('/createTeam', (req, res) => {
@@ -51,11 +48,10 @@ app.post('/authenticate', (req, res) => {
   res.status(authData.status).send(authData.body)
 })
 
-// Default port 3001
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, err => {
   if (err) {
-    console.error(err)
+    console.error('error-rayees', err)
   } else {
     console.log(`Running on port ${PORT}`)
   }
