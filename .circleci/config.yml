@@ -26,8 +26,6 @@ jobs:
         - image: buildpack-deps:trusty
       steps:
         - checkout
-        - run: npm install heroku -g
-        - run: heroku login
         - run:
             name: Deploy to Heroku
             command: |
