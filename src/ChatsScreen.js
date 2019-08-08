@@ -19,7 +19,7 @@ import DirectionsRun from '@material-ui/icons/DirectionsRun'
 import Delete from '@material-ui/icons/Delete'
 
 class ChatScreen extends Component {
-    defaultRoomId = 15759972;
+    defaultRoomId = '027a033c-065c-485c-ba84-22178bad668e';
     userSubscriptions = [this.defaultRoomId];
     constructor(props) {
         super(props)
@@ -120,7 +120,7 @@ class ChatScreen extends Component {
        
         this.chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:fcd7894c-a727-4d63-94c2-df6d38f01a04',
-            userId: this.props.currentUsername,
+            userId: 'Rayees',
             tokenProvider: new Chatkit.TokenProvider({
                 url: '/authenticate',
             }),
